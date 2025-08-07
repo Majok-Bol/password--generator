@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//build a password generator that expires in 5 seconds
+//what do i need to build it?
+//timer like time interval
+//i need to know how to generate the password
+//how to generate rate it randomly
+//use math.random to select from the given characters
+//how to store it
+//how to print the results
+//use timer like 5 seconds to make it valid
+//after 5 seconds
+//remove the results
+//generate a new one
 
-function App() {
-  const [count, setCount] = useState(0)
+import {useState} from 'react';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App(){
+
+  //push it into the array
+  //let there be fixed length
+
+  //i need to manage state like 5 seconds timer
+  //then count down and make it expire by removing the generate password
+  //which states do i need to manage
+  //click button
+  //generate new password
+  //let it be empty at first
+  const [password,setPassword]=useState("");
+  //handle password generation
+  function handlePasswordGeneration(){
+      const characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+  console.log('Charaters to choose from: ',characters);
+  //split the characters
+  const splitCharacters=characters.split("");
+  console.log("Split characters: ",splitCharacters);
+  //store them in an array
+  const passwords=[];
+  //pick numbers randomly from the split list 
+  let startIndex=0;
+  let endIndex=10;
+  for(let i=startIndex;i<endIndex;i++){
+  //   //generate random number to pick the password characters
+      let randomNumber=Math.floor(Math.random()*splitCharacters.length);
+    console.log("Random character: ",randomNumber);
+    passwords.push(splitCharacters[randomNumber]);
+  }
+  console.log("New password: ",passwords);
+  const newPassword=passwords.join("");
+  console.log("New Generated password: ",newPassword);
+  setPassword(newPassword);
+
+  }
+  return(<><button onClick={handlePasswordGeneration}>Generate Password</button>
+  <div>{password}</div>
+  </>)
+
 }
-
-export default App
