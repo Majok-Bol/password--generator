@@ -36,7 +36,7 @@ export default function App(){
   const passwords=[];
   //pick numbers randomly from the split list 
   let startIndex=0;
-  let endIndex=10;
+  let endIndex=15;
   for(let i=startIndex;i<endIndex;i++){
   //   //generate random number to pick the password characters
       let randomNumber=Math.floor(Math.random()*splitCharacters.length);
@@ -49,8 +49,10 @@ export default function App(){
   setPassword(newPassword);
 
   }
-  return(<><button onClick={handlePasswordGeneration}>Generate Password</button>
-  <div>{password}</div>
+  return(<><button id="btn" onClick={handlePasswordGeneration}>Generate Password</button>
+  <div className='password-container' id='password'>{password}
+
+  </div>
   </>)
 
 }
