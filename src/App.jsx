@@ -27,7 +27,7 @@ export default function App(){
   const [password,setPassword]=useState("");
   //handle password generation
   function handlePasswordGeneration(){
-      const characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+      const characters='uvwxyzABCDklmEFGHITUVabijnopqrst0123456789!WXYZ@JKLMNO#cdefgh$%^&*PQRS()';
   console.log('Charaters to choose from: ',characters);
   //split the characters
   const splitCharacters=characters.split("");
@@ -49,7 +49,11 @@ export default function App(){
   setPassword(newPassword);
 
   }
-  return(<><button id="btn" onClick={handlePasswordGeneration}>Generate Password</button>
+  return(
+  <>
+  <h1>Password Generator</h1>
+  <button id="btn" onClick={handlePasswordGeneration}>Generate Password</button>
+
   <div className='password-container' id='password'>{password}
 
   </div>
