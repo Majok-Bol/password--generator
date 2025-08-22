@@ -25,29 +25,7 @@ export default function App(){
   //generate new password
   //let it be empty at first
   const [password,setPassword]=useState("");
-  const [currentDate,setCurrentDate]=useState("");
-  function handleSetDate(){
-    const secondsData=[0,1,2,3,4,5];
 
-         setInterval(() => {
-              for(let i=0;i<secondsData.length;i++){
-       console.log('Seconds: ,',secondsData[i]);
- 
-    }
-
-       
-      },1000);
-    setCurrentDate(secondsData);
-  //   setInterval(()=>{
-  //  const newDate=new Date();
-  //   console.log('Current date: ',newDate);
-  //   // setCurrentDate(newDate.toString());
-  //   const getSeconds=newDate.getSeconds();
-  //   setCurrentDate(getSeconds.toString());
-
-  //   },1000)
- 
-  }
   //handle password generation
   function handlePasswordGeneration(){
       const characters='uvwxyzABCDklmEFGHITUVabijnopqrst0123456789!WXYZ@JKLMNO#cdefgh$%^&*PQRS()';
@@ -80,10 +58,7 @@ export default function App(){
   <div className='password-container' id='password'>{password}
 
   </div>
-  <div>
-  <button id='date' onClick={handleSetDate}>Set Date</button>
-  <div>{currentDate}</div>
-  </div>
+
 
   </>)
 
